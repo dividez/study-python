@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import codecs
+import csv
 import re
 
 __author__ = 'Jim'
@@ -19,8 +21,7 @@ def wb():
             text = text.encode('utf-8')
             text = filter_tags(text).strip()
             text = clearning(text)
-            print text
-            # yield text
+            yield text
 
 
 def clearning(text):
@@ -53,6 +54,14 @@ def filter_tags(htmlstr):
     return s
 
 
-wb()
+def write_csv(texts):
+    with codecs.open('./weibo.csv', 'w') as f:
+        writer = csv.DictWriter(f, fieldnames=["text"])
+        writer.writeheader()
+        for text in texts:
+            writer.writerow({"text": text})
+
+
+write_csv(wb())
 
 # print clearning('Repost')
