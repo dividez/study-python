@@ -4,6 +4,7 @@ import urllib2
 
 __author__ = 'Jim'
 
+# 参考链接：http://cuiqingcai.com/990.html
 
 class qsbk:
     def __init__(self):
