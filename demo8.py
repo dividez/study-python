@@ -4,7 +4,14 @@ import urllib2
 
 __author__ = 'Jim'
 
-# 参考链接：http://cuiqingcai.com/990.html
+"""
+Description:
+    A simple web spider for qiushibaike, ignore images.
+    Reference: http://cuiqingcai.com/990.html    静觅 » Python爬虫实战一之爬取糗事百科段子
+Author:     zpy0930@gmail.com
+Created Date:   2017年11月24日
+Version:        1.0
+"""
 
 class qsbk:
     def __init__(self):
