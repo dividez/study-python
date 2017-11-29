@@ -94,6 +94,5 @@ class BDTB:
 
 if __name__ == '__main__':
     baseURL = 'http://tieba.baidu.com/p/3138733512'
-    # baseURL = 'http://tieba.baidu.com/p/5446246276'
     bdtb = BDTB(baseURL, 1)
     bdtb.getPageNumber()
