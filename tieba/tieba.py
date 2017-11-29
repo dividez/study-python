@@ -3,7 +3,14 @@ import re
 import urllib2
 
 __author__ = 'Jim'
-
+"""
+Description:
+    A simple web spider for Crawl Baidu Post Bar posts.
+    Reference: http://cuiqingcai.com/993.html    Python爬虫实战二之爬取百度贴吧帖子
+Author:     zpy0930@gmail.com
+Created Date:   2017年11月29日
+Version:        1.0
+"""
 
 # 处理页面标签类
 class Tool:
