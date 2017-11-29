@@ -12,6 +12,7 @@ Created Date:   2017年11月29日
 Version:        1.0
 """
 
+
 # 处理页面标签类
 class Tool:
     # 去除img标签,7位长空格
