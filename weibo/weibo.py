@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import codecs
 import csv
+import json
 import re
+import urllib2
 
 import jieba
 import jieba.analyse
@@ -16,18 +18,18 @@ import requests
 
 class WBWordCloud:
     def __init__(self, cookies, MaxPageNumber):
-        self.cookies_are = cookies
         self.MaxPageNumber = MaxPageNumber
+        self.user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
+        self.headers = {'User-Agent': self.user_agent, 'cookie': cookies}
 
     def wb(self):
         api = "https://m.weibo.cn/index/my?format=cards&page=%s"
-        cookies = dict(
-            cookies_are=self.cookies_are)
         for i in range(1, int(self.MaxPageNumber)):
             print u'正在抓取微博第%d页数据....' % i
-            response = requests.get(url=api % i, params={}, cookies=cookies)
-            data = response.json()[0]
-            groups = data.get('card_group') or []
+            request = urllib2.Request(url=api % i, headers=self.headers)
+            response = urllib2.urlopen(request)
+            data = response.read()
+            groups = json.loads(data)[0].get('card_group') or []
             for group in groups:
                 text = group.get('mblog').get('text')
                 text = text.encode('utf-8')
@@ -84,7 +86,7 @@ class WBWordCloud:
         jieba.analyse.set_stop_words("./stop_words.txt")
         for text in texts:
             tags = jieba.analyse.extract_tags(text, topK=20)
-            return " ".join(tags)
+            yield " ".join(tags)
 
     def generate_img(self, texts):
         data = " ".join(text for text in texts)
@@ -101,9 +103,8 @@ class WBWordCloud:
     def start(self):
         print u'正在抓取微博数据....'
         self.write_csv(self.wb())
-        self.word_segment(self.read_csv())
         print u'微博数据抓取完毕，正在制作词云....'
-        self.generate_img(self.read_csv())
+        self.generate_img(self.word_segment(self.read_csv()))
         print u'制作词云完毕....'
 
 
