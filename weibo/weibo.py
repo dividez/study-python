@@ -110,9 +110,12 @@ class WBWordCloud:
 
 
 if __name__ == '__main__':
+    # 你自己的 cookie
     cookie = '_T_WM=05cad175256e0ebe6bd9bfc6cb7c83a5; ALF=1514525058; SCF=AovAf3iaf5_5A-7191mBIHAdrnGPBDSZ3d_2017U8-Ylgo9U-V0K9S4h182ldHCZLew-otZrWI01T7rR9vHXKy8.; SUB=_2A253Gy7GDeRhGeNK6lsQ8yrEzTiIHXVU57KOrDV6PUJbktAKLXn9kW1NSVPD_x8NYEAQ_pDt6-luZ6k3UGdC4I1c; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5ugm.Doobl8_njRi2vp82X5JpX5K-hUgL.Fo-XeK.pe0BRSoB2dJLoI7DSqg_LxrHXUPiL; SUHB=0idrYDOg90J9ug; SSOLoginState=1512005271'
+    # 获取多少页的数据
+    page = 100
     wb = WBWordCloud(
         cookie,
-        100)
+        page)
 
     wb.start()
