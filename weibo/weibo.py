@@ -96,7 +96,8 @@ class WBWordCloud:
             background_color='white',
             mask=mask_img
         ).generate(data)
-        plt.imshow(wordcloud)
+        plt.figure()
+        plt.imshow(wordcloud, cmap=plt.cm.gray, interpolation="bilinear")
         plt.axis('off')
         plt.savefig('./heart.jpg', dpi=600)
 
