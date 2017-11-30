@@ -20,7 +20,9 @@ https://m.weibo.cn/index/my?format=cards&page=1
 
 ### run
 
-`python weibo.py`
+````
+python weibo.py
+````
 
 
 
