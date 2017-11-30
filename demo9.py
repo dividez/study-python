@@ -29,7 +29,7 @@ class apiTest:
         sign_string = ''
         for v in data:
             sign_string = sign_string + str(param[v])
-        sign_string = sign_string + secret_key
+        sign_string = secret_key + sign_string
         skey = hashlib.md5(sign_string).hexdigest()
         param['signature'] = skey
         return self.post(url, param)
