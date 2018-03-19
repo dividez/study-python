@@ -1,4 +1,4 @@
-### Euler题解
+### Python
 
 - Euler 项目题解
 - git 抓取表情包
