@@ -3,17 +3,11 @@ __author__ = 'Jim'
 '''
 Problem 2 https://projecteuler.net/problem=2
 '''
+a, b = 1, 2
+limit = 4000000
+sumTotal = 0
+while a < limit:
+    a, b = b, a + b
+    sumTotal += a if a % 2 == 0 else 0
 
-a = [1, 2]
-total = 2
-i = 2
-while (1):
-    next = a[i - 1] + a[i - 2]
-    a.append(next)
-    if next % 2 == 0:
-        total = total + next
-    if next > 4000000:
-        break
-    i += 1
-
-print(total)
+print(sumTotal)
