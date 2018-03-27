@@ -18,6 +18,7 @@ def isprime(num):
 
 the_10001st = 0
 for i in range(2, 10 ** 9):
+
     the_10001st += isprime(i)
     if the_10001st == 10001:
         print(i)
