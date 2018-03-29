@@ -3,6 +3,11 @@ from math import sqrt
 
 __author__ = 'Jim'
 
+'''
+Problem 10 https://projecteuler.net/problem=10
+
+'''
+
 def isprime(num):
     for i in range(2, int(sqrt(num)) + 1):
         if num % i == 0:
